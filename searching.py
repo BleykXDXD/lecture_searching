@@ -19,11 +19,26 @@ def read_data(file_name, field):
             return data[field]
 
 
+def linear_search(field, number):
+    seznam = []
+    count = 0
+    for idx, value in enumerate(field):
+        if value == number:
+            seznam.append(idx)
+            count += 1
+    return {"Positions": seznam, "Count": count}
+
+
+
+
+
 def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
     sequential_data1 = read_data("sequential.json", "ordered_numbers")
     sequential_data2 = read_data("sequential.json", "dna_sequence")
     print(sequential_data)
+    print(linear_search([54, 2, 18, 5, 3, 31, 20, 65, -10, 300, 17, 5, -1, 0, 0, 102, 7, 8, 9, 9, -3, -5, 0, 1, 63, 82, -36, -5], 9))
+
 
 
 if __name__ == '__main__':
