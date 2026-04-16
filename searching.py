@@ -28,6 +28,27 @@ def linear_search(field, number):
             count += 1
     return {"Positions": seznam, "Count": count}
 
+def binary_search(field, number):
+    middle = len(field)/2
+    number_middle = int(middle)
+    left = 0
+    right = len(field) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        middle_value = field[mid]
+
+        if number < middle_value:
+            right = mid - 1
+        elif number > middle_value:
+            left = mid + 1
+        else:
+            return mid
+    return None
+
+
+
+
 
 
 
@@ -38,7 +59,7 @@ def main():
     sequential_data2 = read_data("sequential.json", "dna_sequence")
     print(sequential_data)
     print(linear_search([54, 2, 18, 5, 3, 31, 20, 65, -10, 300, 17, 5, -1, 0, 0, 102, 7, 8, 9, 9, -3, -5, 0, 1, 63, 82, -36, -5], 9))
-
+    print(binary_search(sequential_data1,13))
 
 
 if __name__ == '__main__':
